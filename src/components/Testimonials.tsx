@@ -62,7 +62,7 @@ const testimonials: Testimonial[] = [{
     rating: 5
   }];
 
-export default const TestimonialSection = () => {
+export const TestimonialSection = () => {
   return (
     <AnimatedSection className="py-20 w-full" id="testimonials">
       <div className="section-container">
