@@ -1,26 +1,35 @@
-
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, MessageSquare, Phone } from "lucide-react";
+import {
+  useState
+} from "react";
+import {
+  motion
+} from "framer-motion";
+import {
+  Mail,
+  MessageSquare,
+  Phone
+} from "lucide-react";
 
 export default function Contact() {
-  const [formStatus, setFormStatus] = useState<{
+  const [formStatus,
+    setFormStatus] = useState < {
     message: string;
     type: "success" | "error" | null;
-  }>({
-    message: "",
-    type: null,
-  });
+  } > ({
+      message: "",
+      type: null,
+    });
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [formData,
+    setFormData] = useState( {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent < HTMLInputElement | HTMLTextAreaElement >
   ) => {
     setFormData({
       ...formData,
@@ -28,11 +37,11 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent < HTMLFormElement >) => {
     e.preventDefault();
     // For demo purposes, let's just simulate a submission
     console.log("Form data:", formData);
-    
+
     setTimeout(() => {
       setFormStatus({
         message: "Message sent successfully!",
@@ -48,14 +57,13 @@ export default function Contact() {
   };
 
   const inputClasses = "w-full px-4 py-3 bg-accent border border-border focus:border-primary rounded-lg focus:outline-none transition-colors";
-  
-  const contactInfo = [
-    {
-      icon: <Mail className="h-5 w-5" />,
-      title: "Email",
-      value: "contact@yourdomain.com",
-      link: "mailto:contact@yourdomain.com",
-    },
+
+  const contactInfo = [{
+    icon: <Mail className="h-5 w-5" />,
+    title: "Email",
+    value: "contact@yourdomain.com",
+    link: "mailto:contact@yourdomain.com",
+  },
     {
       icon: <Phone className="h-5 w-5" />,
       title: "Phone",
@@ -71,18 +79,18 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-accent/30 relative overflow-hidden">
+    <section id="contact" className="py-20 bg-accent/30 relative overflow-hidden w-full">
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
-      
+
       <div className="section-container relative z-10">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+          initial={ { opacity: 0, y: 20 }}
+          whileInView={ { opacity: 1, y: 0 }}
+          transition={ { duration: 0.8 }}
+          viewport={ { once: true }}
+          >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
           <p className="max-w-2xl mx-auto text-muted-foreground">
@@ -93,13 +101,13 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+            initial={ { opacity: 0, x: -50 }}
+            whileInView={ { opacity: 1, x: 0 }}
+            transition={ { duration: 0.8 }}
+            viewport={ { once: true }}
+            >
             <h3 className="text-2xl font-medium mb-6">Send a Message</h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -107,8 +115,8 @@ export default function Contact() {
                     Your Name
                   </label>
                   <motion.input
-                    whileFocus={{ scale: 1.01 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    whileFocus={ { scale: 1.01 }}
+                    transition={ { type: "spring", stiffness: 400, damping: 10 }}
                     type="text"
                     id="name"
                     name="name"
@@ -117,15 +125,15 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className={inputClasses}
-                  />
+                    />
                 </div>
                 <div>
                   <label htmlFor="email" className="block mb-2 text-sm font-medium">
                     Email Address
                   </label>
                   <motion.input
-                    whileFocus={{ scale: 1.01 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    whileFocus={ { scale: 1.01 }}
+                    transition={ { type: "spring", stiffness: 400, damping: 10 }}
                     type="email"
                     id="email"
                     name="email"
@@ -134,7 +142,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className={inputClasses}
-                  />
+                    />
                 </div>
               </div>
 
@@ -143,8 +151,8 @@ export default function Contact() {
                   Subject
                 </label>
                 <motion.input
-                  whileFocus={{ scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  whileFocus={ { scale: 1.01 }}
+                  transition={ { type: "spring", stiffness: 400, damping: 10 }}
                   type="text"
                   id="subject"
                   name="subject"
@@ -153,7 +161,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className={inputClasses}
-                />
+                  />
               </div>
 
               <div>
@@ -161,8 +169,8 @@ export default function Contact() {
                   Message
                 </label>
                 <motion.textarea
-                  whileFocus={{ scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  whileFocus={ { scale: 1.01 }}
+                  transition={ { type: "spring", stiffness: 400, damping: 10 }}
                   id="message"
                   name="message"
                   rows={5}
@@ -171,28 +179,27 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className={inputClasses}
-                />
+                  />
               </div>
 
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={ { scale: 1.02 }}
+                whileTap={ { scale: 0.98 }}
                 className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:shadow-lg hover:shadow-primary/20 transition-all"
-              >
+                >
                 Send Message
               </motion.button>
-              
+
               {formStatus.message && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={ { opacity: 0, y: 10 }}
+                  animate={ { opacity: 1, y: 0 }}
                   className={`mt-4 p-3 rounded-lg ${
-                    formStatus.type === "success"
-                      ? "bg-green-500/10 text-green-500"
-                      : "bg-red-500/10 text-red-500"
+                  formStatus.type === "success"
+                  ? "bg-green-500/10 text-green-500": "bg-red-500/10 text-red-500"
                   }`}
-                >
+                  >
                   {formStatus.message}
                 </motion.div>
               )}
@@ -200,32 +207,36 @@ export default function Contact() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            initial={ { opacity: 0, x: 50 }}
+            whileInView={ { opacity: 1, x: 0 }}
+            transition={ { duration: 0.8 }}
+            viewport={ { once: true }}
             className="flex flex-col h-full"
-          >
+            >
             <h3 className="text-2xl font-medium mb-6">Contact Information</h3>
-            
+
             <div className="space-y-6 mb-10">
               {contactInfo.map((item, index) => (
                 <motion.a
                   key={index}
                   href={item.link}
                   className="flex items-center gap-4 p-4 rounded-lg bg-accent hover:bg-accent/70 transition-colors"
-                  whileHover={{ x: 5 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
+                  whileHover={ { x: 5 }}
+                  initial={ { opacity: 0, y: 20 }}
+                  whileInView={ { opacity: 1, y: 0 }}
+                  transition={ { duration: 0.5, delay: index * 0.1 }}
+                  viewport={ { once: true }}
+                  >
                   <div className="p-3 bg-primary/10 text-primary rounded-full">
                     {item.icon}
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">{item.title}</p>
-                    <p className="font-medium">{item.value}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {item.title}
+                    </p>
+                    <p className="font-medium">
+                      {item.value}
+                    </p>
                   </div>
                 </motion.a>
               ))}

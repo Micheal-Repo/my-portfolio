@@ -36,12 +36,13 @@ const Index = () => {
 
   return (
     <ThemeProvider defaultTheme="light">
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-screen bg-background text-foreground w-screen overflow-hidden">
         <Header />
-        <main>
+        <main className="w-screen overflow-hidden">
           <Hero />
           <About />
           <Projects />
+          <Testimonials />
           <Contact />
         </main>
         <Footer />
