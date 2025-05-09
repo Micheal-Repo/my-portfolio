@@ -6,8 +6,8 @@ export default function RippleComp() {
   return (
     <div className="absolute inset-0">
       <Ripple
-        mainCircleSize={100}
-        numCircles={8}
+        mainCircleSize={400}
+        numCircles={10}
         />
     </div>
   )

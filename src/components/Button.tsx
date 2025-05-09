@@ -1,7 +1,4 @@
 import {
-  BorderBeam,
-} from "@/components/ui/border-beam";
-import {
   cn
 } from "@/lib/utils";
 import {
@@ -40,8 +37,6 @@ export default function Button({
     whileHover={ { scale: 1.05 }}
     whileTap={ { scale: 0.95 }}
     >
-    <BorderBeam duration={8} size={80} />
-    <BorderBeam delay={20} duration={8} size={80} />
 
     {children}
   </motion.a>):
@@ -56,8 +51,7 @@ export default function Button({
       outline ? "text-foreground border-border border bg-transparent": "g3 text-white"
     )}
     >
-    <BorderBeam duration={8} size={80} />
-    <BorderBeam delay={20} duration={8} size={80} />
+
     {Icon && <Icon />}
 
     <p>

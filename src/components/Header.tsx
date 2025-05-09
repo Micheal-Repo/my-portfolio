@@ -138,32 +138,7 @@ export default function Header() {
             <span className="text-gradient">Aloysius</span>
           </motion.div>
 
-          {/* Desktop Navigation
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, i) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                initial={ { opacity: 0, y: -20 }}
-                animate={ { opacity: 1, y: 0 }}
-                transition={ { duration: 0.3, delay: i * 0.1 }}
-                className="text-sm font-medium relative group"
-                >
-                {item.name}
-                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-              </motion.a>
-            ))}
-            <motion.div
-              initial={ { opacity: 0,
-                scale: 0.8 }}
-              animate={ { opacity: 1,
-                scale: 1 }}
-              transition={ { duration: 0.3,
-                delay: 0.5 }}
-              >
-              <ThemeToggle />
-            </motion.div>
-          </nav>*/}
+          {/* Desktop Navigation*/}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item, i) => {
               const isActive = activeSection === item.href.substring(1);
@@ -176,7 +151,6 @@ export default function Header() {
                   transition={ { duration: 0.3, delay: i * 0.1 }}
                   className={cn(
                     "text-sm font-medium relative group",
-                    isActive ? "text-primary": ""
                   )}
                   >
                   {item.name}
