@@ -97,7 +97,7 @@ export default function Testimonials () {
           className="relative flex w-full flex-col items-center justify-center overflow-hidden">
           <Marquee pauseOnHover className="[--duration:20s]" applyMask={false}>
             {firstRow.map((testimonial, i) => (
-              <TestimonialCard key={i} testimonial={testimonial} />/>
+              <TestimonialCard key={i} testimonial={testimonial} />
             ))}
           </Marquee>
           <Marquee reverse applyMask={false} pauseOnHover className="[--duration:20s]">
