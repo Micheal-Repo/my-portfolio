@@ -17,8 +17,6 @@ const SkillsSection = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             controls.start("visible");
-          } else {
-            controls.start("hidden");
           }
         });
       },
@@ -132,11 +130,11 @@ const SkillsSection = () => {
     percentage: any,
     skill: any
   }) => {
-    const radius = 40;
+    const radius = 50;
     const circumference = 2 * Math.PI * radius;
 
     return (
-      <div className="relative w-28 h-28 flex items-center justify-center">
+      <div className="relative w-32 h-32 flex items-center justify-center">
         <svg className="w-full h-full" viewBox="0 0 100 100">
           <circle
             className="text-gray-200"
@@ -181,7 +179,7 @@ const SkillsSection = () => {
           transition={ { duration: 0.5,
             delay: 1 }}
           >
-          <span className="text-xl font-bold text-gradient">
+          <span className="text-xl font-bold text-foreground">
             {percentage}%
           </span>
           <span className="text-xs text-muted-foreground flex-wrap text-center mt-1">
@@ -196,21 +194,21 @@ const SkillsSection = () => {
     <section
       ref={sectionRef}
       id="skills"
-      className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900"
+      className=""
       >
-      <div className="max-w-7xl mx-auto">
+      <div className="">
         <motion.div
           initial={ { opacity: 0,
             y: 20 }}
           animate={ { opacity: 1,
             y: 0 }}
           transition={ { duration: 0.5 }}
-          className="text-center mb-12"
+          className="mb-12"
           >
-          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
+          <h2 className="text-2xl font-semibold text-foreground text-left">
             My Technical Skills
           </h2>
-          <p className="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-4 text-left max-w-2xl  text-muted-foreground">
             I've honed a diverse set of skills across the full stack development
             spectrum. From crafting pixel-perfect UIs to building robust backend
             systems, I combine technical expertise with creative problem-solving
@@ -226,10 +224,10 @@ const SkillsSection = () => {
               x: 0 }}
             transition={ { duration: 0.5,
               delay: 0.2 }}
-            className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-sm"
+            className="bg-accent p-6 rounded-xl shadow-sm"
             >
-            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6 text-center">
-              Frontend Development
+            <h3 className="text-xl font-semibold text-foreground mb-6 text-center">
+              Frontend Skills
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
               {skills.frontend.map((skill, index) => (
@@ -260,10 +258,10 @@ const SkillsSection = () => {
               x: 0 }}
             transition={ { duration: 0.5,
               delay: 0.2 }}
-            className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-sm"
+            className="bg-accent p-6 rounded-xl shadow-sm"
             >
-            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6 text-center">
-              Backend Development
+            <h3 className="text-xl font-semibold text-foreground mb-6 text-center">
+              Backend Skills
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
               {skills.backend.map((skill, index) => (

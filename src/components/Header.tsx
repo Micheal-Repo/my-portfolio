@@ -152,6 +152,7 @@ export default function Header() {
                   transition={ { duration: 0.3, delay: i * 0.1 }}
                   className={cn(
                     "text-sm font-medium relative group",
+                    isActive ? "text-primary": "text-foreground"
                   )}
                   >
                   {item.name}
@@ -179,18 +180,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-4">
             <ThemeToggle />
-            {/* <motion.button
-              whileTap={ { scale: 0.9 }}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="relative z-50"
-              aria-label="Toggle menu"
-              >
-              {!mobileMenuOpen ? (
-                <Menu className="h-6 w-6" />
-              ): (
-                <X className="h-6 w-6" />
-              )}
-            </motion.button>*/}
+
           </div>
 
           {/* Android Style Mobile Navigation Menu

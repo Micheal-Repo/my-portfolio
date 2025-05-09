@@ -191,7 +191,7 @@ export default function Projects() {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="rounded-2xl bg-card overflow-hidden group"
+                className="rounded-2xl bg-card border-border border overflow-hidden group"
                 initial={ { opacity: 0, y: 20 }}
                 whileInView={ { opacity: 1, y: 0 }}
                 viewport={ { once: true }}
@@ -208,16 +208,16 @@ export default function Projects() {
                 {/* Overlay with links */}
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Button
-                    variant="secondary"
                     size="icon"
                     asChild
+                    className="bg-primary text-white"
                     >
                     <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-5 w-5" />
                     </a>
                   </Button>
                   <Button
-                    variant="secondary"
+                    className="bg-primary text-white"
                     size="icon"
                     asChild
                     >
@@ -238,7 +238,7 @@ export default function Projects() {
                 {/* Project tags */}
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map(tag => (
-                    <Badge key={tag} variant="secondary">{tag}</Badge>
+                    <Badge key={tag} className="bg-primary text-white">{tag}</Badge>
                   ))}
                 </div>
               </div>
