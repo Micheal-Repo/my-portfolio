@@ -1,0 +1,273 @@
+import {
+  motion
+} from "framer-motion";
+import {
+  useEffect,
+  useRef,
+  useState
+} from "react";
+
+const SkillsSection = () => {
+  const [animated,
+    setAnimated] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setAnimated(true);
+          }
+        });
+      },
+      {
+        threshold: 0.1
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  },
+    []);
+
+  const skills = {
+    frontend: [{
+      name: "HTML5", level: 95
+    },
+      {
+        name: "CSS3/Tailwind", level: 90
+      },
+      {
+        name: "JavaScript", level: 92
+      },
+      {
+        name: "TypeScript", level: 85
+      },
+      {
+        name: "React", level: 90
+      },
+      {
+        name: "Next.js", level: 80
+      },
+      {
+        name: "Vue.js", level: 75
+      },
+      {
+        name: "Svelte", level: 70
+      },
+      {
+        name: "Redux", level: 85
+      },
+      {
+        name: "Framer Motion", level: 80
+      },
+      {
+        name: "GSAP", level: 75
+      },
+      {
+        name: "Responsive Design", level: 90
+      },
+    ],
+    backend: [{
+      name: "Node.js", level: 88
+    },
+      {
+        name: "Express", level: 85
+      },
+      {
+        name: "Python", level: 80
+      },
+      {
+        name: "Django", level: 75
+      },
+      {
+        name: "Ruby on Rails", level: 70
+      },
+      {
+        name: "PHP", level: 75
+      },
+      {
+        name: "Laravel", level: 70
+      },
+      {
+        name: "MySQL", level: 85
+      },
+      {
+        name: "PostgreSQL", level: 80
+      },
+      {
+        name: "MongoDB", level: 78
+      },
+      {
+        name: "Firebase", level: 82
+      },
+      {
+        name: "GraphQL", level: 75
+      },
+      {
+        name: "REST APIs", level: 90
+      },
+      {
+        name: "Docker", level: 70
+      },
+      {
+        name: "AWS", level: 65
+      },
+    ],
+  };
+
+  const CircularProgress = ({
+    percentage,
+    skill
+  }: {
+    percentage: any,
+    skill: any
+  }) => {
+    const radius = 40;
+    const circumference = 2 * Math.PI * radius;
+    const offset = circumference - (percentage / 100) * circumference;
+
+    return (
+      <div className="relative w-28 h-28 flex items-center justify-center">
+        <svg className="w-full h-full" viewBox="0 0 100 100">
+          <circle
+            className="text-gray-200"
+            strokeWidth="8"
+            stroke="currentColor"
+            fill="transparent"
+            r={radius}
+            cx="50"
+            cy="50"
+            />
+          <motion.circle
+            className="text-indigo-600"
+            strokeWidth="8"
+            strokeLinecap="round"
+            stroke="currentColor"
+            fill="transparent"
+            r={radius}
+            cx="50"
+            cy="50"
+            initial={ { strokeDashoffset: circumference }}
+            animate={ {
+              strokeDashoffset: animated ? offset: circumference,
+            }}
+            transition={ { duration: 1.5,
+              ease: "easeInOut" }}
+            strokeDasharray={circumference}
+            strokeDashoffset={offset}
+            />
+        </svg>
+        <div className="absolute flex flex-col items-center justify-center">
+          <span className="text-xl font-bold text-gray-800 dark:text-white">
+            {percentage}%
+          </span>
+          <span className="text-xs text-gray-600 dark:text-gray-300 text-center mt-1">
+            {skill}
+          </span>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <section
+      ref={sectionRef}
+      id="skills"
+      className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900"
+      >
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={ { opacity: 0,
+            y: 20 }}
+          animate={ { opacity: 1,
+            y: 0 }}
+          transition={ { duration: 0.5 }}
+          className="text-center mb-12"
+          >
+          <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
+            My Technical Skills
+          </h2>
+          <p className="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            I've honed a diverse set of skills across the full stack development
+            spectrum. From crafting pixel-perfect UIs to building robust backend
+            systems, I combine technical expertise with creative problem-solving
+            to deliver exceptional digital experiences.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <motion.div
+            initial={ { opacity: 0,
+              x: -20 }}
+            animate={ { opacity: 1,
+              x: 0 }}
+            transition={ { duration: 0.5,
+              delay: 0.2 }}
+            className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-sm"
+            >
+            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6 text-center">
+              Frontend Development
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+              {skills.frontend.map((skill, index) => (
+                <motion.div
+                  key={index}
+                  initial={ { opacity: 0, scale: 0.8 }}
+                  animate={ { opacity: animated ? 1: 0, scale: animated ? 1: 0.8 }}
+                  transition={ { duration: 0.5, delay: index * 0.05 }}
+                  className="flex flex-col items-center"
+                  >
+                  <CircularProgress
+                    percentage={skill.level}
+                    skill={skill.name}
+                    />
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={ { opacity: 0,
+              x: 20 }}
+            animate={ { opacity: 1,
+              x: 0 }}
+            transition={ { duration: 0.5,
+              delay: 0.2 }}
+            className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-sm"
+            >
+            <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6 text-center">
+              Backend Development
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+              {skills.backend.map((skill, index) => (
+                <motion.div
+                  key={index}
+                  initial={ { opacity: 0, scale: 0.8 }}
+                  animate={ { opacity: animated ? 1: 0, scale: animated ? 1: 0.8 }}
+                  transition={ { duration: 0.5, delay: index * 0.05 }}
+                  className="flex flex-col items-center"
+                  >
+                  <CircularProgress
+                    percentage={skill.level}
+                    skill={skill.name}
+                    />
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default SkillsSection;

@@ -2,6 +2,7 @@ import {
   motion
 } from "framer-motion";
 import AnimatedBlob from "./AnimatedBlob";
+import Skills from "./skills";
 import {
   Code,
   FileCode,
@@ -108,27 +109,8 @@ export default function About() {
           </motion.div>
 
           <div className="space-y-8">
-            <motion.div
-              initial={ { opacity: 0, y: 20 }}
-              whileInView={ { opacity: 1, y: 0 }}
-              transition={ { duration: 0.8 }}
-              viewport={ { once: true }}
-              >
-              <h3 className="text-2xl font-medium mb-4">My Journey</h3>
-              <p className="text-muted-foreground mb-6">
-                With over 5 years of experience in web development, I've worked on projects ranging from small business websites to complex enterprise applications. My approach combines technical expertise with creative problem-solving.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["React", "TypeScript", "Node.js", "Next.js", "Tailwind CSS", "MongoDB", "PostgreSQL"].map((tech, i: number) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 bg-accent rounded-full text-xs font-medium"
-                    >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
+
+            <Skills />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {skills.map((skill, index) => (
