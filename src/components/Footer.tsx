@@ -72,7 +72,7 @@ export default function Footer() {
               viewport={ { once: true }}
               >
               <Logo />
-              <p className="text-muted-foreground mb-6 max-w-md">
+              <p className="text-muted-foreground mb-6 max-w-md mt-4">
                 Creating exceptional digital experiences with modern web technologies.
                 Let's build something amazing together.
               </p>

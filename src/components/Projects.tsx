@@ -12,7 +12,12 @@ import {
   Github,
   ExternalLink
 } from "lucide-react";
-
+import {
+  Button
+} from "@/components/ui/button";
+import {
+  Badge
+} from "@/components/ui/badge";
 
 type ProjectCategory = "frontend" | "fullstack" | "all";
 
@@ -21,69 +26,95 @@ interface Project {
   title: string;
   description: string;
   image: string;
-  category: "frontend" | "fullstack";
   tags: string[];
-  links: {
-    github?: string;
-    live?: string;
-  };
+  demoUrl: string;
+  repoUrl: string;
+  category: "frontend" | "fullstack";
 }
+
+
 
 const projects: Project[] = [{
   id: 1,
-  title: "Modern Dashboard",
-  description: "A responsive admin dashboard with dark mode and interactive charts.",
-  image: "/placeholder.svg",
-  category: "frontend",
+  title: "Modern E-commerce Platform",
+  description: "A full-featured e-commerce site with cart functionality, product filtering, and Stripe payment integration.",
+  image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1470&auto=format&fit=crop",
   tags: ["React",
-    "Tailwind CSS",
-    "Chart.js"],
-  links: {
-    github: "#",
-    live: "#",
-  },
+    "Next.js",
+    "TailwindCSS",
+    "Stripe",
+    "MongoDB"],
+  demoUrl: "#",
+  repoUrl: "#",
+  category: "fullstack"
 },
   {
     id: 2,
-    title: "E-commerce Platform",
-    description: "Full-featured online store with product listings, cart, and checkout.",
-    image: "/placeholder.svg",
-    category: "frontend",
-    tags: ["Next.js",
-      "TypeScript",
-      "Stripe"],
-    links: {
-      github: "#",
-      live: "#",
-    },
+    title: "3D Portfolio Website",
+    description: "An interactive portfolio website featuring 3D graphics with Three.js and smooth animations.",
+    image: "https://images.unsplash.com/photo-1545235617-7a424c1a60cc?q=80&w=1480&auto=format&fit=crop",
+    tags: ["React",
+      "Three.js",
+      "Framer Motion",
+      "TailwindCSS"],
+    demoUrl: "#",
+    repoUrl: "#",
+    category: "frontend"
   },
   {
     id: 3,
-    title: "API Service",
-    description: "RESTful API with authentication, rate limiting, and comprehensive documentation.",
-    image: "/placeholder.svg",
-    category: "fullstack",
-    tags: ["Node.js",
-      "Express",
-      "MongoDB"],
-    links: {
-      github: "#",
-    },
+    title: "Real-time Chat Application",
+    description: "A modern chat application with real-time messaging, user authentication, and message history.",
+    image: "https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1470&auto=format&fit=crop",
+    tags: ["React",
+      "Firebase",
+      "Styled Components",
+      "WebSockets"],
+    demoUrl: "#",
+    repoUrl: "#",
+    category: "fullstack"
   },
   {
     id: 4,
-    title: "Database Manager",
-    description: "fullstack service for efficient data processing and storage optimization.",
-    image: "/placeholder.svg",
-    category: "fullstack",
-    tags: ["Python",
-      "PostgreSQL",
-      "Docker"],
-    links: {
-      github: "#",
-    },
+    title: "REST API Service",
+    description: "A scalable REST API with authentication, rate limiting, and comprehensive documentation.",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1374&auto=format&fit=crop",
+    tags: ["Node.js",
+      "Express",
+      "MongoDB",
+      "JWT",
+      "Swagger"],
+    demoUrl: "#",
+    repoUrl: "#",
+    category: "fullstack"
   },
-];
+  {
+    id: 5,
+    title: "Task Management Dashboard",
+    description: "A productivity dashboard with drag-and-drop task management, charts, and progress tracking.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1415&auto=format&fit=crop",
+    tags: ["React",
+      "Redux",
+      "Chart.js",
+      "TailwindCSS"],
+    demoUrl: "#",
+    repoUrl: "#",
+    category: "frontend"
+  },
+  {
+    id: 6,
+    title: "Microservice Infrastructure",
+    description: "A set of microservices for handling authentication, payments, and user management with Docker and Kubernetes.",
+    image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?q=80&w=1470&auto=format&fit=crop",
+    tags: ["Node.js",
+      "Docker",
+      "Kubernetes",
+      "RabbitMQ",
+      "PostgreSQL"],
+    demoUrl: "#",
+    repoUrl: "#",
+    category: "fullstack"
+  }];
 
 export default function Projects() {
   const [activeCategory,
@@ -152,81 +183,75 @@ export default function Projects() {
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
           >
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
-
-              <motion.div
-                key={project.id}
-                initial={ { opacity: 0, y: 20 }}
-                animate={ { opacity: 1, y: 0 }}
-                exit={ { opacity: 0, scale: 0.9 }}
-                transition={ { duration: 0.5 }}
-                layout
-                className="bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-borde"
-                >
-
-                <div className="relative h-48 overflow-hidden">
-                  <motion.img
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCategory}
+              initial={ { opacity: 0, y: 20 }}
+              animate={ { opacity: 1, y: 0 }}
+              exit={ { opacity: 0, y: -20 }}
+              transition={ { duration: 0.5 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              >
+              {filteredProjects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  className="glass-card overflow-hidden group"
+                  initial={ { opacity: 0, y: 20 }}
+                  whileInView={ { opacity: 1, y: 0 }}
+                  viewport={ { once: true }}
+                  transition={ { duration: 0.5, delay: index * 0.1 }}
+                  >
+                  {/* Project image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
-                    whileHover={ { scale: 1.05 }}
-                    transition={ { duration: 0.5 }}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
-                  <div className="absolute top-2 right-2 bg-accent/80 backdrop-blur-sm rounded-full px-3 py-1">
-                    <span className="text-xs font-medium capitalize">{project.category}</span>
+
+                  {/* Overlay with links */}
+                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Button
+                      variant="secondary"
+                      size="icon"
+                      asChild
+                      >
+                      <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="h-5 w-5" />
+                      </a>
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      size="icon"
+                      asChild
+                      >
+                      <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="h-5 w-5" />
+                      </a>
+                    </Button>
                   </div>
                 </div>
+
+                {/* Project info */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-muted-foreground mb-4">
+                  <h3 className="text-xl font-medium mb-2">{project.title}</h3>
+                  <p className="text-foreground/70 text-sm mb-4">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={`${project.id}-${tag}`}
-                        className="px-2 py-1 bg-accent rounded-md text-xs font-medium"
-                        >
-                        {tag}
-                      </span>
+
+                  {/* Project tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map(tag => (
+                      <Badge key={tag} variant="secondary">{tag}</Badge>
                     ))}
-                  </div>
-                  <div className="flex gap-3">
-                    {project.links.github && (
-                      <motion.a
-                        href={project.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-full bg-accent hover:bg-accent/80 transition-colors"
-                        whileHover={ { scale: 1.1 }}
-                        whileTap={ { scale: 0.9 }}
-                        >
-                        <Github className="h-5 w-5" />
-                        <span className="sr-only">GitHub</span>
-                      </motion.a>
-                    )}
-                    {project.links.live && (
-                      <motion.a
-                        href={project.links.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-full bg-accent hover:bg-accent/80 transition-colors"
-                        whileHover={ { scale: 1.1 }}
-                        whileTap={ { scale: 0.9 }}
-                        >
-                        <ExternalLink className="h-5 w-5" />
-                        <span className="sr-only">Live Preview</span>
-                      </motion.a>
-                    )}
                   </div>
                 </div>
               </motion.div>
-
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      </div>
-    </section>
-  );
+              ))}
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
+    </div>
+  </section>
+);
 }
