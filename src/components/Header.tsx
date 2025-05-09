@@ -14,6 +14,7 @@ import {
 import {
   cn
 } from "@/lib/utils";
+import Logo from "@/components/logo"
 import {
   Home,
   User,
@@ -135,7 +136,7 @@ export default function Header() {
             transition={ { duration: 0.5 }}
             className="text-2xl font-bold"
             >
-            <span className="text-gradient">Aloysius</span>
+            <Logo />
           </motion.div>
 
           {/* Desktop Navigation*/}

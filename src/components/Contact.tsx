@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import ContactForm from "./contactForm";
 
+
 export default function Contact() {
   const contactInfo = [{
     icon: <Mail className="h-5 w-5" />,
