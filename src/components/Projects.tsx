@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import {
   MagicCard
-} from "@/components/magicCard";
+} from "@/components/margicCard";
 
 
 type ProjectCategory = "frontend" | "fullstack" | "all";
