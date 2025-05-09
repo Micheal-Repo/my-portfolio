@@ -22,7 +22,7 @@ function SkillItem({
 }: SkillItemProps) {
   return (
     <motion.div
-      className="flex items-start gap-4 p-4 bg-accent rounded-lg"
+      className="flex items-start gap-4 p-4 bg-accent border border-border  rounded-lg"
       initial={ { opacity: 0, y: 20 }}
       whileInView={ { opacity: 1, y: 0 }}
       transition={ { delay, duration: 0.5 }}

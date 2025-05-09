@@ -76,7 +76,7 @@ export default function Contact() {
                 <motion.a
                   key={index}
                   href={item.link}
-                  className="flex items-center gap-4 p-4 rounded-lg bg-accent hover:bg-accent/70 transition-colors"
+                  className="flex items-center gap-4 p-4 border border-border  rounded-lg bg-accent hover:bg-accent/70 transition-colors"
                   whileHover={ { x: 5 }}
                   initial={ { opacity: 0, y: 20 }}
                   whileInView={ { opacity: 1, y: 0 }}
@@ -98,28 +98,7 @@ export default function Contact() {
               ))}
             </div>
 
-            <div className="mt-auto">
-              <div className="bg-card rounded-lg p-6 border border-border">
-                <h4 className="font-medium mb-2">Office Hours</h4>
-                <p className="text-muted-foreground text-sm mb-4">
-                  I'm available for meetings and calls during these hours:
-                </p>
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span>9:00 AM - 5:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Saturday</span>
-                    <span>10:00 AM - 2:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Sunday</span>
-                    <span>Closed</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </motion.div>
         </div>
       </div>

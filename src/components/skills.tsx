@@ -130,11 +130,11 @@ const SkillsSection = () => {
     percentage: any,
     skill: any
   }) => {
-    const radius = 50;
+    const radius = 40;
     const circumference = 2 * Math.PI * radius;
 
     return (
-      <div className="relative w-32 h-32 flex items-center justify-center">
+      <div className="relative w-28 h-28 flex items-center justify-center">
         <svg className="w-full h-full" viewBox="0 0 100 100">
           <circle
             className="text-gray-200"
@@ -224,7 +224,7 @@ const SkillsSection = () => {
               x: 0 }}
             transition={ { duration: 0.5,
               delay: 0.2 }}
-            className="bg-accent p-6 rounded-xl shadow-sm"
+            className="bg-accent border border-border p-6 rounded-xl shadow-sm"
             >
             <h3 className="text-xl font-semibold text-foreground mb-6 text-center">
               Frontend Skills
@@ -258,7 +258,7 @@ const SkillsSection = () => {
               x: 0 }}
             transition={ { duration: 0.5,
               delay: 0.2 }}
-            className="bg-accent p-6 rounded-xl shadow-sm"
+            className="bg-accent border border-border p-6 rounded-xl shadow-sm"
             >
             <h3 className="text-xl font-semibold text-foreground mb-6 text-center">
               Backend Skills
