@@ -94,8 +94,9 @@ export default function About() {
             >
             <div className="relative">
               <AnimatedBlob
-                imageUrl="/placeholder.svg"
-                size="md"
+                imageUrl="/aloy.jpg"
+                size="md",
+                className="lg:scale-x-[-1]"
                 />
               <div className="absolute -bottom-4 -right-4 glass rounded-lg p-3 shadow-lg">
                 <div className="flex items-center gap-2">

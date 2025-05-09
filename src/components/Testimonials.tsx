@@ -7,6 +7,10 @@ import {
 import {
   AnimatedSection
 } from "./AnimatedSection";
+import Marquee from "@/components/ui/marque";
+import {
+  cn
+} from "@/lib/utils";
 import {
   Carousel,
   CarouselContent,
@@ -62,83 +66,164 @@ const testimonials: Testimonial[] = [{
     rating: 5
   }];
 
+const firstRow = testimonials.slice(0, testimonials.length / 2);
+const secondRow = testimonials.slice(testimonials.length / 2);
+
 
 export default function Testimonials () {
   return (
     <AnimatedSection className="py-20 w-full" id="testimonials">
-      <div className="section-container">
-        <h2 className="section-title">Client Testimonials</h2>
-        <p className="text-foreground/80 mb-10 max-w-2xl">
-          Don't just take my word for it - here's what clients and colleagues have to say about working with me.
-        </p>
 
-        <Carousel
-          opts={ {
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
+      <div className="section-container relative z-10">
+        <motion.div
+          className="text-center mb-16"
+          initial={ { opacity: 0, y: 20 }}
+          whileInView={ { opacity: 1, y: 0 }}
+          transition={ { duration: 0.8 }}
+          viewport={ { once: true }}
           >
-          <CarouselContent>
-            {testimonials.map((testimonial) => (
-              <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3">
-                <motion.div
-                  className="h-full p-6 glass-card"
-                  initial={ { opacity: 0, y: 20 }}
-                  whileInView={ { opacity: 1, y: 0 }}
-                  viewport={ { once: true }}
-                  transition={ { duration: 0.5 }}
-                  >
-                  {/* Rating */}
-                  <div className="flex mb-4">
-                    {Array(5).fill(0).map((_, index) => (
-                      <Star
-                        key={index}
-                        className={`w-4 h-4 ${
-                        index < testimonial.rating ? "text-yellow-400 fill-yellow-400": "text-gray-300"
-                        }`}
-                        />
-                    ))}
-                  </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Client Testimonials</h2>
+          <div className="w-20 h-1 bg-primary mx-auto mb-6" />
+          <p className="max-w-2xl mx-auto text-muted-foreground">
+            Don't just take my word for it - here's what clients and colleagues have to say about working with me.
+          </p>
+        </motion.div>
 
-                  {/* Content */}
-                  <blockquote className="text-foreground/80 mb-6 text-sm">
-                    "{testimonial.content}"
-                  </blockquote>
-
-                  {/* Author */}
-                  <div className="flex items-center">
-                    <div className="w-10 h-10 rounded-full overflow-hidden mr-3 flex-shrink-0">
-                      <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="w-full h-full object-cover"
-                      />
-                  </div>
-                  <div>
-                    <p className="font-medium">
-                      {testimonial.name}
-                    </p>
-                    <p className="text-xs text-foreground/60">
-                      {testimonial.role}, {testimonial.company}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </CarouselItem>
+        <motion.div
+          initial={ { opacity: 0, y: 20 }}
+          whileInView={ { opacity: 1, y: 0 }}
+          transition={ { duration: 0.8 }}
+          viewport={ { once: true }}
+          className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+          <Marquee pauseOnHover className="[--duration:20s]" applyMask={false}>
+            {firstRow.map((testimonial, i) => (
+              <TestimonialCard key={i} testimonial={testimonial} />/>
             ))}
-        </CarouselContent>
-        <div className="flex justify-center gap-2 mt-8">
-          <CarouselPrevious className="static" />
-          <CarouselNext className="static" />
-        </div>
-      </Carousel>
-    </div>
-  </AnimatedSection>
-);
+          </Marquee>
+          <Marquee reverse applyMask={false} pauseOnHover className="[--duration:20s]">
+            {secondRow.map((testimonial, i) => (
+              <TestimonialCard key={i} testimonial={testimonial} />
+            ))}
+          </Marquee>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
+        </motion.div>
+
+      </div>
+    </AnimatedSection>
+  );
 };
 
 
+
+  function TestimonialCard({
+    testimonial
+  }: {
+    testimonial: any
+  }) {
+    return (
+      <div
+        className={cn(
+          "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+          // light styles
+          "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+          // dark styles
+          "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+        )}
+        >
+
+        {/* Content */}
+        <blockquote className="text-foreground/80 mb-6 text-sm">
+          "{testimonial.content}"
+        </blockquote>
+
+        {/* Author */}
+        <div className="flex items-center">
+          <div className="w-10 h-10 rounded-full overflow-hidden mr-3 flex-shrink-0">
+            <img
+            src={testimonial.avatar}
+            alt={testimonial.name}
+            className="w-full h-full object-cover"
+            />
+        </div>
+        <div>
+          <p className="font-medium">
+            {testimonial.name}
+          </p>
+          <p className="text-xs text-foreground/60">
+            {testimonial.role}, {testimonial.company}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+
+
+
+
+// < Carousel
+// opts = {
+//   {
+//     align: "start",
+//     loop: true,
+//   }}
+// className = "w-full" >
+// <CarouselContent>
+//   {testimonials.map((testimonial) => (
+//     <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/3">
+//       <motion.div
+//         className="h-full p-6 glass-card"
+//         initial={ { opacity: 0, y: 20 }}
+//         whileInView={ { opacity: 1, y: 0 }}
+//         viewport={ { once: true }}
+//         transition={ { duration: 0.5 }}
+//         >
+//         {/* Rating */}
+//         <div className="flex mb-4">
+//           {Array(5).fill(0).map((_, index) => (
+//             <Star
+//               key={index}
+//               className={`w-4 h-4 ${
+//               index < testimonial.rating ? "text-yellow-400 fill-yellow-400": "text-gray-300"
+//               }`}
+//               />
+//           ))}
+//         </div>
+
+//         {/* Content */}
+//         <blockquote className="text-foreground/80 mb-6 text-sm">
+//           "{testimonial.content}"
+//         </blockquote>
+
+//         {/* Author */}
+//         <div className="flex items-center">
+//           <div className="w-10 h-10 rounded-full overflow-hidden mr-3 flex-shrink-0">
+//             <img
+//             src={testimonial.avatar}
+//             alt={testimonial.name}
+//             className="w-full h-full object-cover"
+//             />
+//         </div>
+//         <div>
+//           <p className="font-medium">
+//             {testimonial.name}
+//           </p>
+//           <p className="text-xs text-foreground/60">
+//             {testimonial.role}, {testimonial.company}
+//           </p>
+//         </div>
+//       </div>
+//     </motion.div>
+//   </CarouselItem>
+//   ))}
+// </CarouselContent>
+// <div className="flex justify-center gap-2 mt-8">
+// <CarouselPrevious className="static" />
+// <CarouselNext className="static" />
+// </div>
+// </Carousel>
 
 
 
