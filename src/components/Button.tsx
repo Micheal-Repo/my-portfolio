@@ -1,6 +1,6 @@
 import {
   BorderBeam,
-} from "@/components/border-beam";
+} from "@/components/ui/border-beam";
 import {
   cn
 } from "@/lib/utils";
