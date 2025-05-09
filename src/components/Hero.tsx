@@ -7,12 +7,19 @@ import {
   ArrowDown
 } from "lucide-react";
 import GridBg from "@/components/gridBg"
+import RippleBg from "@/components/rippleBg"
+import Button from "@/components/Button"
+import {
+  User2,
+  ExternalLink
+} from 'lucide-react';
+
 
 export default function Hero() {
   return (
     <section id="home" className="min-h-screen w-full relative overflow-hidden flex items-center pt-16">
 
-      <GridBg />
+      <RippleBg />
 
       {/* Background gradient */}
       <div className="z-10 absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background" />
@@ -60,22 +67,19 @@ export default function Hero() {
             animate={ { opacity: 1, y: 0 }}
             transition={ { delay: 0.8, duration: 0.8 }}
             >
-            <motion.a
+            <Button
               href="#contact"
-              className="px-8 py-3 bg-primary text-white rounded-lg font-medium flex items-center gap-2 hover:shadow-lg hover:shadow-primary/20 transition-all"
-              whileHover={ { scale: 1.05 }}
-              whileTap={ { scale: 0.95 }}
+              Icon={User2}
               >
-              Get in touch
-            </motion.a>
-            <motion.a
+              Contact me
+            </Button>
+            <Button
+              Icon={ExternalLink}
               href="#projects"
-              className="px-8 py-3 border border-border rounded-lg font-medium hover:bg-accent transition-colors"
-              whileHover={ { scale: 1.05 }}
-              whileTap={ { scale: 0.95 }}
+              outline={true}
               >
               View Projects
-            </motion.a>
+            </Button>
           </motion.div>
         </motion.div>
 

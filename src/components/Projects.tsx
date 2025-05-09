@@ -13,14 +13,14 @@ import {
   ExternalLink
 } from "lucide-react";
 
-type ProjectCategory = "frontend" | "backend" | "all";
+type ProjectCategory = "frontend" | "fullstack" | "all";
 
 interface Project {
   id: number;
   title: string;
   description: string;
   image: string;
-  category: "frontend" | "backend";
+  category: "frontend" | "fullstack";
   tags: string[];
   links: {
     github?: string;
@@ -61,7 +61,7 @@ const projects: Project[] = [{
     title: "API Service",
     description: "RESTful API with authentication, rate limiting, and comprehensive documentation.",
     image: "/placeholder.svg",
-    category: "backend",
+    category: "fullstack",
     tags: ["Node.js",
       "Express",
       "MongoDB"],
@@ -72,9 +72,9 @@ const projects: Project[] = [{
   {
     id: 4,
     title: "Database Manager",
-    description: "Backend service for efficient data processing and storage optimization.",
+    description: "fullstack service for efficient data processing and storage optimization.",
     image: "/placeholder.svg",
-    category: "backend",
+    category: "fullstack",
     tags: ["Python",
       "PostgreSQL",
       "Docker"],
@@ -119,7 +119,7 @@ export default function Projects() {
                 id: "frontend", label: "Frontend"
               },
               {
-                id: "fullstack", label: "Backend"
+                id: "fullstack", label: "Fullstack"
               },
             ].map((category) => (
                 <motion.button
@@ -135,7 +135,7 @@ export default function Projects() {
                   >
                   {activeCategory === category.id && (
                     <motion.div
-                      className="absolute inset-0 bg-primary rounded-md z-0"
+                      className="absolute inset-0 g3 rounded-md z-0"
                       layoutId="activeCategory"
                       transition={ { type: "spring", duration: 0.6 }}
                       />
@@ -159,7 +159,7 @@ export default function Projects() {
                 exit={ { opacity: 0, scale: 0.9 }}
                 transition={ { duration: 0.5 }}
                 layout
-                className="bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-border"
                 >
                 <div className="relative h-48 overflow-hidden">
                   <motion.img

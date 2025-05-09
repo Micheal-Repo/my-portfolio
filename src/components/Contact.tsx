@@ -7,8 +7,12 @@ import {
 import {
   Mail,
   MessageSquare,
-  Phone
+  Phone,
+  Send
 } from "lucide-react";
+import {
+  Button
+} from "@/components/Button"
 
 export default function Contact() {
   const [formStatus,
@@ -182,14 +186,13 @@ export default function Contact() {
                   />
               </div>
 
-              <motion.button
+              <Button
                 type="submit"
-                whileHover={ { scale: 1.02 }}
-                whileTap={ { scale: 0.98 }}
-                className="w-full py-3 bg-primary text-white rounded-lg font-medium hover:shadow-lg hover:shadow-primary/20 transition-all"
+                Icon={send}
+                className="w-full"
                 >
                 Send Message
-              </motion.button>
+              </Button>
 
               {formStatus.message && (
                 <motion.div
