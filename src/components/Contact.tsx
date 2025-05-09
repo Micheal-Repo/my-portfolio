@@ -10,9 +10,7 @@ import {
   Phone,
   Send
 } from "lucide-react";
-import {
-  Button
-} from "@/components/Button"
+import Button from "@/components/Button"
 
 export default function Contact() {
   const [formStatus,
