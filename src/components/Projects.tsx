@@ -157,18 +157,19 @@ export default function Projects() {
           >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                initial={ { opacity: 0, y: 20 }}
-                animate={ { opacity: 1, y: 0 }}
-                exit={ { opacity: 0, scale: 0.9 }}
-                transition={ { duration: 0.5 }}
-                layout
-                className="bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-borde"
+              <MagicCard
+                className="p-0"
                 >
-                <MagicCard
-                  className="p-0"
+                <motion.div
+                  key={project.id}
+                  initial={ { opacity: 0, y: 20 }}
+                  animate={ { opacity: 1, y: 0 }}
+                  exit={ { opacity: 0, scale: 0.9 }}
+                  transition={ { duration: 0.5 }}
+                  layout
+                  className="bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-borde"
                   >
+
                   <div className="relative h-48 overflow-hidden">
                     <motion.img
                       src={project.image}
@@ -225,8 +226,8 @@ export default function Projects() {
                       )}
                     </div>
                   </div>
-                </MagicCard>
-              </motion.div>
+                </motion.div>
+              </MagicCard>
             ))}
           </AnimatePresence>
         </motion.div>
