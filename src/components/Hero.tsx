@@ -92,7 +92,7 @@ export default function Hero() {
             }}
             >
             <AnimatedBlob
-              imageUrl="/placeholder.svg"
+              imageUrl="/aloy.jpg"
               className="absolute inset-0"
               size="lg"
               />
