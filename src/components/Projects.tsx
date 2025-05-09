@@ -179,78 +179,74 @@ export default function Projects() {
           </div>
         </div>
 
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
-          >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeCategory}
-              initial={ { opacity: 0, y: 20 }}
-              animate={ { opacity: 1, y: 0 }}
-              exit={ { opacity: 0, y: -20 }}
-              transition={ { duration: 0.5 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              >
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  className="glass-card overflow-hidden group"
-                  initial={ { opacity: 0, y: 20 }}
-                  whileInView={ { opacity: 1, y: 0 }}
-                  viewport={ { once: true }}
-                  transition={ { duration: 0.5, delay: index * 0.1 }}
-                  >
-                  {/* Project image */}
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={ { opacity: 0, y: 20 }}
+            animate={ { opacity: 1, y: 0 }}
+            exit={ { opacity: 0, y: -20 }}
+            transition={ { duration: 0.5 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                className="rounded-2xl bg-card overflow-hidden group"
+                initial={ { opacity: 0, y: 20 }}
+                whileInView={ { opacity: 1, y: 0 }}
+                viewport={ { once: true }}
+                transition={ { duration: 0.5, delay: index * 0.1 }}
+                >
+                {/* Project image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
 
-                  {/* Overlay with links */}
-                  <div className="absolute inset-0 bg-black/50 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Button
-                      variant="secondary"
-                      size="icon"
-                      asChild
-                      >
-                      <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-5 w-5" />
-                      </a>
-                    </Button>
-                    <Button
-                      variant="secondary"
-                      size="icon"
-                      asChild
-                      >
-                      <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-5 w-5" />
-                      </a>
-                    </Button>
-                  </div>
+                {/* Overlay with links */}
+                <div className="absolute inset-0 bg-black/50 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Button
+                    variant="secondary"
+                    size="icon"
+                    asChild
+                    >
+                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-5 w-5" />
+                    </a>
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="icon"
+                    asChild
+                    >
+                    <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                      <Github className="h-5 w-5" />
+                    </a>
+                  </Button>
                 </div>
+              </div>
 
-                {/* Project info */}
-                <div className="p-6">
-                  <h3 className="text-xl font-medium mb-2">{project.title}</h3>
-                  <p className="text-foreground/70 text-sm mb-4">
-                    {project.description}
-                  </p>
+              {/* Project info */}
+              <div className="p-6">
+                <h3 className="text-xl font-medium mb-2">{project.title}</h3>
+                <p className="text-foreground/70 text-sm mb-4">
+                  {project.description}
+                </p>
 
-                  {/* Project tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map(tag => (
-                      <Badge key={tag} variant="secondary">{tag}</Badge>
-                    ))}
-                  </div>
+                {/* Project tags */}
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map(tag => (
+                    <Badge key={tag} variant="secondary">{tag}</Badge>
+                  ))}
                 </div>
-              </motion.div>
-              ))}
-          </motion.div>
-        </AnimatePresence>
-      </motion.div>
+              </div>
+            </motion.div>
+            ))}
+        </motion.div>
+      </AnimatePresence>
+
     </div>
   </section>
 );

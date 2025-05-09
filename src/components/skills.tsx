@@ -1,23 +1,24 @@
 import {
-  motion
+  motion,
+  useAnimation
 } from "framer-motion";
 import {
   useEffect,
-  useRef,
-  useState
+  useRef
 } from "react";
 
 const SkillsSection = () => {
-  const [animated,
-    setAnimated] = useState(false);
   const sectionRef = useRef(null);
+  const controls = useAnimation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setAnimated(true);
+            controls.start("visible");
+          } else {
+            controls.start("hidden");
           }
         });
       },
@@ -36,7 +37,7 @@ const SkillsSection = () => {
       }
     };
   },
-    []);
+    [controls]);
 
   const skills = {
     frontend: [{
@@ -133,7 +134,6 @@ const SkillsSection = () => {
   }) => {
     const radius = 40;
     const circumference = 2 * Math.PI * radius;
-    const offset = circumference - (percentage / 100) * circumference;
 
     return (
       <div className="relative w-28 h-28 flex items-center justify-center">
@@ -148,6 +148,7 @@ const SkillsSection = () => {
             cy="50"
             />
           <motion.circle
+            style={ { color: "hsl(194.1,100%,40%)" }}
             className="text-indigo-600"
             strokeWidth="8"
             strokeLinecap="round"
@@ -156,24 +157,37 @@ const SkillsSection = () => {
             r={radius}
             cx="50"
             cy="50"
-            initial={ { strokeDashoffset: circumference }}
-            animate={ {
-              strokeDashoffset: animated ? offset: circumference,
+            variants={ {
+              hidden: { strokeDashoffset: circumference },
+              visible: {
+                strokeDashoffset: circumference - (percentage / 100) * circumference,
+              }
             }}
+            initial="hidden"
+            animate={controls}
             transition={ { duration: 1.5,
               ease: "easeInOut" }}
             strokeDasharray={circumference}
-            strokeDashoffset={offset}
             />
         </svg>
-        <div className="absolute flex flex-col items-center justify-center">
-          <span className="text-xl font-bold text-gray-800 dark:text-white">
+        <motion.div
+          className="absolute flex flex-col items-center justify-center"
+          variants={ {
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 }
+          }}
+          initial="hidden"
+          animate={controls}
+          transition={ { duration: 0.5,
+            delay: 1 }}
+          >
+          <span className="text-xl font-bold text-gradient">
             {percentage}%
           </span>
-          <span className="text-xs text-gray-600 dark:text-gray-300 text-center mt-1">
+          <span className="text-xs text-muted-foreground flex-wrap text-center mt-1">
             {skill}
           </span>
-        </div>
+        </motion.div>
       </div>
     );
   };
@@ -222,7 +236,11 @@ const SkillsSection = () => {
                 <motion.div
                   key={index}
                   initial={ { opacity: 0, scale: 0.8 }}
-                  animate={ { opacity: animated ? 1: 0, scale: animated ? 1: 0.8 }}
+                  variants={ {
+                    hidden: { opacity: 0, scale: 0.8 },
+                    visible: { opacity: 1, scale: 1 }
+                  }}
+                  animate={controls}
                   transition={ { duration: 0.5, delay: index * 0.05 }}
                   className="flex flex-col items-center"
                   >
@@ -251,8 +269,12 @@ const SkillsSection = () => {
               {skills.backend.map((skill, index) => (
                 <motion.div
                   key={index}
-                  initial={ { opacity: 0, scale: 0.8 }}
-                  animate={ { opacity: animated ? 1: 0, scale: animated ? 1: 0.8 }}
+                  initial="hidden"
+                  variants={ {
+                    hidden: { opacity: 0, scale: 0.8 },
+                    visible: { opacity: 1, scale: 1 }
+                  }}
+                  animate={controls}
                   transition={ { duration: 0.5, delay: index * 0.05 }}
                   className="flex flex-col items-center"
                   >
