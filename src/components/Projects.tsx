@@ -119,7 +119,7 @@ export default function Projects() {
                 id: "frontend", label: "Frontend"
               },
               {
-                id: "backend", label: "Backend"
+                id: "fullstack", label: "Backend"
               },
             ].map((category) => (
                 <motion.button
@@ -140,7 +140,7 @@ export default function Projects() {
                       transition={ { type: "spring", duration: 0.6 }}
                       />
                   )}
-                  <span className="relative z-10">{category.label}</span>
+                  <span className={cn("relative z-10", activeCategory === category.id ? "text-white": "")}>{category.label}</span>
                 </motion.button>
               ))}
           </div>

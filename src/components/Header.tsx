@@ -10,6 +10,9 @@ import {
   ThemeToggle
 } from "./ThemeToggle";
 import {
+  ScrollProgress
+} from "@/components/ui/scrollProgress"
+import {
   cn
 } from "@/lib/utils";
 import {
@@ -123,6 +126,7 @@ export default function Header() {
           ? "bg-background/80 backdrop-blur-md border-b": "bg-transparent"
         )}
         >
+        <ScrollProgress />
         <div className="container flex items-center justify-between">
           <motion.div
             initial={ { opacity: 0,
@@ -132,7 +136,7 @@ export default function Header() {
             transition={ { duration: 0.5 }}
             className="text-2xl font-bold"
             >
-            <span className="text-gradient">Portfolio</span>
+            <span className="text-gradient">Aloysius</span>
           </motion.div>
 
           {/* Desktop Navigation */}

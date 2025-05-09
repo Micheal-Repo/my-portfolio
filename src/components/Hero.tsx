@@ -2,24 +2,25 @@ import {
   motion
 } from "framer-motion";
 import AnimatedBlob from "./AnimatedBlob";
-import {
-  Ripple
-} from "@/components/ui/ripple";
 import AnimatedSphere from "./AnimatedSphere";
 import {
   ArrowDown
 } from "lucide-react";
+import GridBg from "@/components/gridBg"
 
 export default function Hero() {
   return (
     <section id="home" className="min-h-screen w-full relative overflow-hidden flex items-center pt-16">
+
+      <GridBg />
+
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background" />
+      <div className="z-10 absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background" />
 
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-hero-pattern opacity-[0.03]" />
 
-      <div className="section-container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div className="section-container relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <motion.div
           className="flex flex-col gap-6"
           initial={ { opacity: 0, y: 20 }}
@@ -61,7 +62,7 @@ export default function Hero() {
             >
             <motion.a
               href="#contact"
-              className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium flex items-center gap-2 hover:shadow-lg hover:shadow-primary/20 transition-all"
+              className="px-8 py-3 bg-primary text-white rounded-lg font-medium flex items-center gap-2 hover:shadow-lg hover:shadow-primary/20 transition-all"
               whileHover={ { scale: 1.05 }}
               whileTap={ { scale: 0.95 }}
               >
@@ -78,8 +79,7 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        <div className="relative flex justify-center w-full lg:h-full h-[400px] items-center">
-          <Ripple />
+        <div className="relative flex justify-center lg:justify-end">
           <motion.div
             className="relative w-72 h-72 md:w-96 md:h-96"
             initial={ { opacity: 0, scale: 0.5 }}
@@ -92,7 +92,7 @@ export default function Hero() {
             }}
             >
             <AnimatedBlob
-              imageUrl="/aloy.jpg"
+              imageUrl="/placeholder.svg"
               className="absolute inset-0"
               size="lg"
               />

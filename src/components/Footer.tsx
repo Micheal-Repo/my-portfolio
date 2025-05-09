@@ -55,10 +55,6 @@ export default function Footer() {
       name: "Contact",
       href: "#contact"
     },
-    {
-      name: "Resume",
-      href: "#"
-    },
   ];
 
   return (
@@ -75,7 +71,7 @@ export default function Footer() {
               viewport={ { once: true }}
               >
               <h2 className="text-2xl font-bold mb-4">
-                <span className="text-gradient">Portfolio</span>
+                <span className="text-gradient">Aloysius</span>
               </h2>
               <p className="text-muted-foreground mb-6 max-w-md">
                 Creating exceptional digital experiences with modern web technologies.
@@ -121,41 +117,14 @@ export default function Footer() {
               ))}
             </ul>
           </motion.div>
+        </div>
 
-          <motion.div
-            initial={ { opacity: 0, y: 20 }}
-            whileInView={ { opacity: 1, y: 0 }}
-            transition={ { duration: 0.5, delay: 0.2 }}
-            viewport={ { once: true }}
-            >
-            <h3 className="text-lg font-medium mb-4">Newsletter</h3>
-            <p className="text-muted-foreground mb-4">
-              Subscribe to receive updates and news about my latest projects.
-            </p>
-            <form className="flex">
-              <input
-              type="email"
-              placeholder="Your email"
-              className="px-4 py-2 bg-accent rounded-l-lg flex-1 border border-border focus:outline-none focus:ring-1 focus:ring-primary"
-              />
-            <motion.button
-              type="submit"
-              className="px-4 py-2 bg-primary text-primary-foreground rounded-r-lg font-medium"
-              whileHover={ { scale: 1.05 }}
-              whileTap={ { scale: 0.95 }}
-              >
-              Subscribe
-            </motion.button>
-          </form>
-        </motion.div>
+        <div className="mt-8 text-center">
+          <p className="text-muted-foreground text-sm">
+            © {currentYear} John Doe. All rights reserved.
+          </p>
+        </div>
       </div>
-
-      <div className="mt-8 text-center">
-        <p className="text-muted-foreground text-sm">
-          © {currentYear} John Doe. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
 }
