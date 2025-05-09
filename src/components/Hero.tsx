@@ -5,8 +5,8 @@ import AnimatedBlob from "./AnimatedBlob";
 import {
   ArrowDown
 } from "lucide-react";
-//import GridBg from "@/components/gridBg"
-import RippleBg from "@/components/rippleBg"
+import GridBg from "@/components/gridBg"
+//import RippleBg from "@/components/rippleBg"
 import Button from "@/components/Button"
 import {
   User2,
@@ -18,7 +18,7 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen w-full relative overflow-hidden flex items-center pt-16">
 
-
+      <GridBg />
 
       {/* Background gradient */}
       <div className="z-10 absolute inset-0 bg-gradient-radial from-transparent via-transparent to-background" />
@@ -94,7 +94,7 @@ export default function Hero() {
               stiffness: 100
             }}
             >
-            <RippleBg />
+
             <AnimatedBlob
               imageUrl="/aloy.jpg"
               className="absolute inset-0"

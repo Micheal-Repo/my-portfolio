@@ -63,8 +63,8 @@ export default function Footer() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
       <div className="section-container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-border">
-          <div className="col-span-1 lg:col-span-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2  gap-8 pb-10 border-b border-border">
+          <div className="">
             <motion.div
               initial={ { opacity: 0, y: 20 }}
               whileInView={ { opacity: 1, y: 0 }}
