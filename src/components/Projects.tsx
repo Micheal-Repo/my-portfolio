@@ -140,7 +140,7 @@ export default function Projects() {
                   >
                   {activeCategory === category.id && (
                     <motion.div
-                      className="absolute inset-0 g3 rounded-md z-0"
+                      className="absolute inset-0 bg-primary rounded-md z-0"
                       layoutId="activeCategory"
                       transition={ { type: "spring", duration: 0.6 }}
                       />

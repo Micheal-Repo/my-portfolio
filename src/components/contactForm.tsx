@@ -239,7 +239,7 @@ export default function ContactForm() {
           >
           <Button
             type="submit"
-            className="w-full py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:shadow-lg hover:shadow-primary/20 transition-all"
+            className="w-full py-3 bg-primary text-white-foreground rounded-lg font-medium hover:shadow-lg hover:shadow-primary/20 transition-all"
             disabled={isSubmitting}
             >
             {isSubmitting ? (

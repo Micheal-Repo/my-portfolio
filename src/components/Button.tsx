@@ -34,7 +34,7 @@ export default function Button({
     className={cn(
       "relative py-2 px-8 shadow-xl rounded-2xl flex items-center transition-all duration-300 shadow-background/[0.6] font-medium uppercase flex items-center gap-3 justify-between",
       className,
-      outline ? "text-foreground border-border border bg-background": "g3 text-white"
+      outline ? "text-foreground border-border border bg-transparent": "bg-primary text-white"
     )}
 
     whileHover={ { scale: 1.05 }}
@@ -53,7 +53,7 @@ export default function Button({
     className={cn(
       "relative py-2 px-8 shadow-xl rounded-2xl flex items-center transition-all duration-300 shadow-background/[0.6] font-medium uppercase flex items-center gap-3 justify-between",
       className,
-      outline ? "text-foreground border-border border bg-background": "g3 text-white"
+      outline ? "text-foreground border-border border bg-transparent": "bg-primary text-white"
     )}
     >
     <BorderBeam duration={8} size={80} />
