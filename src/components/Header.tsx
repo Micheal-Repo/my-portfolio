@@ -11,7 +11,7 @@ import {
 } from "./ThemeToggle";
 import {
   ScrollProgress
-} from "@/components/ui/scrollProgress"
+} from "@/components/scrollProgress"
 import {
   cn
 } from "@/lib/utils";
