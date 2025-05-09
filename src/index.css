@@ -101,7 +101,7 @@
     }
 
     .section-container {
-        @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+        @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20;
     }
     .g3 {
         @apply bg-gradient-to-r to-[hsl(194.1,100%,40%)] from-[hsl(194.1,100%,30%)];

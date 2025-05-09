@@ -45,10 +45,10 @@ const SkillsSection = () => {
         name: "CSS3/Tailwind", level: 90
       },
       {
-        name: "JavaScript", level: 92
+        name: "JavaScript", level: 80
       },
       {
-        name: "TypeScript", level: 85
+        name: "TypeScript", level: 60
       },
       {
         name: "React", level: 90
@@ -57,22 +57,13 @@ const SkillsSection = () => {
         name: "Next.js", level: 80
       },
       {
-        name: "Vue.js", level: 75
+        name: "Framer Motion", level: 60
       },
       {
-        name: "Svelte", level: 70
+        name: "GSAP", level: 50
       },
       {
-        name: "Redux", level: 85
-      },
-      {
-        name: "Framer Motion", level: 80
-      },
-      {
-        name: "GSAP", level: 75
-      },
-      {
-        name: "Responsive Design", level: 90
+        name: "Responsive Design", level: 80
       },
     ],
     backend: [{
@@ -82,43 +73,16 @@ const SkillsSection = () => {
         name: "Express", level: 85
       },
       {
-        name: "Python", level: 80
-      },
-      {
-        name: "Django", level: 75
-      },
-      {
-        name: "Ruby on Rails", level: 70
-      },
-      {
-        name: "PHP", level: 75
-      },
-      {
-        name: "Laravel", level: 70
-      },
-      {
-        name: "MySQL", level: 85
-      },
-      {
-        name: "PostgreSQL", level: 80
-      },
-      {
-        name: "MongoDB", level: 78
-      },
-      {
-        name: "Firebase", level: 82
-      },
-      {
-        name: "GraphQL", level: 75
+        name: "MongoDB", level: 90
       },
       {
         name: "REST APIs", level: 90
       },
       {
-        name: "Docker", level: 70
+        name: "Postresql", level: 60
       },
       {
-        name: "AWS", level: 65
+        name: "Sanity", level: 70
       },
     ],
   };
@@ -203,12 +167,12 @@ const SkillsSection = () => {
           animate={ { opacity: 1,
             y: 0 }}
           transition={ { duration: 0.5 }}
-          className="mb-12"
+          className="mb-12 text-center"
           >
-          <h2 className="text-2xl font-semibold text-foreground text-left">
+          <h2 className="text-2xl font-semibold text-foreground text-center">
             My Technical Skills
           </h2>
-          <p className="mt-4 text-left max-w-2xl  text-muted-foreground">
+          <p className="mt-4 text-center mx-auto max-w-2xl  text-muted-foreground">
             I've honed a diverse set of skills across the full stack development
             spectrum. From crafting pixel-perfect UIs to building robust backend
             systems, I combine technical expertise with creative problem-solving

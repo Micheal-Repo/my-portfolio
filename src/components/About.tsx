@@ -45,22 +45,17 @@ export default function About() {
   const skills = [{
     icon: <Code className="h-5 w-5" />,
     title: "Frontend Development",
-    description: "Building responsive UIs with React, Next.js, and modern CSS frameworks.",
+    description: "I build responsive UIs with React, Next.js, and modern CSS frameworks.",
   },
     {
       icon: <Server className="h-5 w-5" />,
       title: "Backend Development",
-      description: "Creating APIs with Node.js, Express, and database management.",
+      description: "I create APIs with Node.js, Express, and database management.",
     },
     {
       icon: <FileCode className="h-5 w-5" />,
       title: "Full Stack Integration",
-      description: "Connecting frontend and backend with RESTful APIs and GraphQL.",
-    },
-    {
-      icon: <User className="h-5 w-5" />,
-      title: "UX/UI Design",
-      description: "Designing user-centered interfaces with a focus on accessibility.",
+      description: "I connect frontend and backend with RESTful APIs",
     },
   ];
 
@@ -80,52 +75,53 @@ export default function About() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
           <p className="max-w-2xl mx-auto text-muted-foreground">
-            I'm a passionate developer with expertise in creating modern web applications.
-            With a focus on clean code and intuitive user experiences, I bring ideas to life.
-          </p>
-        </motion.div>
+            I'm a passionate full-stack developer with a knack for turning ideas into functional, elegant, and scalable web applications. With expertise across both frontend and backend technologies, I bridge the gap between user-centric design and robust system architecture.
+            <br />
+          What drives me? Solving complex problems with clean code and crafting seamless interactions that users love. Whether it’s a pixel-perfect UI or optimizing server performance, I thrive on challenges that push me to grow.
+        </p>
+      </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            className="flex justify-center"
-            initial={ { opacity: 0, scale: 0.8 }}
-            whileInView={ { opacity: 1, scale: 1 }}
-            transition={ { duration: 0.8 }}
-            viewport={ { once: true }}
-            >
-            <div className="relative">
-              <AnimatedBlob
-                imageUrl="/aloy.jpg"
-                size="md"
-                className="lg:scale-x-[-1]"
-                />
-              <div className="absolute -bottom-4 -right-4 glass rounded-lg p-3 shadow-lg">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                  <span className="text-sm font-medium">Available for work</span>
-                </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <motion.div
+          className="flex justify-center"
+          initial={ { opacity: 0, scale: 0.8 }}
+          whileInView={ { opacity: 1, scale: 1 }}
+          transition={ { duration: 0.8 }}
+          viewport={ { once: true }}
+          >
+          <div className="relative">
+            <AnimatedBlob
+              imageUrl="/aloy.jpg"
+              size="md"
+              className="lg:scale-x-[-1]"
+              />
+            <div className="absolute -bottom-4 -right-4 glass rounded-lg p-3 shadow-lg">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                <span className="text-sm font-medium">Available for work</span>
               </div>
             </div>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          <div className="space-y-8">
+        <div className="space-y-8">
 
-            <Skills />
+          <Skills />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {skills.map((skill, index) => (
-                <SkillItem
-                  key={skill.title}
-                  icon={skill.icon}
-                  title={skill.title}
-                  description={skill.description}
-                  delay={index * 0.1}
-                  />
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {skills.map((skill, index) => (
+              <SkillItem
+                key={skill.title}
+                icon={skill.icon}
+                title={skill.title}
+                description={skill.description}
+                delay={index * 0.1}
+                />
+            ))}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 }

@@ -19,14 +19,8 @@ export default function Contact() {
     {
       icon: <Phone className="h-5 w-5" />,
       title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
-    },
-    {
-      icon: <MessageSquare className="h-5 w-5" />,
-      title: "Chat",
-      value: "Open live chat",
-      link: "#",
+      value: "+(234) 810 843 7371",
+      link: "tel:+2348108437371",
     },
   ];
 
@@ -71,7 +65,7 @@ export default function Contact() {
             >
             <h3 className="text-2xl font-medium mb-6">Contact Information</h3>
 
-            <div className="space-y-6 mb-10">
+            <div className="space-y-6">
               {contactInfo.map((item, index) => (
                 <motion.a
                   key={index}
