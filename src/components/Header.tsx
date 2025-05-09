@@ -4,7 +4,6 @@ import {
 } from "react";
 import {
   motion,
-  AnimatePresence
 } from "framer-motion";
 import {
   ThemeToggle
@@ -16,8 +15,6 @@ import {
   cn
 } from "@/lib/utils";
 import {
-  Menu,
-  X,
   Home,
   User,
   Briefcase,
@@ -58,8 +55,6 @@ const navItems = [{
 export default function Header() {
   const [scrolled,
     setScrolled] = useState(false);
-  const [mobileMenuOpen,
-    setMobileMenuOpen] = useState(false);
   const [activeSection,
     setActiveSection] = useState("home");
   const [showNav,
@@ -67,6 +62,8 @@ export default function Header() {
   const [lastScrollY,
     setLastScrollY] = useState(0);
   const isMobile = useIsMobile();
+
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -112,6 +109,8 @@ export default function Header() {
     [lastScrollY,
       isMobile]);
 
+
+
   return (
     <>
       <motion.header
@@ -139,7 +138,7 @@ export default function Header() {
             <span className="text-gradient">Aloysius</span>
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item, i) => (
               <motion.a
@@ -154,6 +153,42 @@ export default function Header() {
                 <span className="absolute inset-x-0 bottom-0 h-0.5 bg-primary origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
               </motion.a>
             ))}
+            <motion.div
+              initial={ { opacity: 0,
+                scale: 0.8 }}
+              animate={ { opacity: 1,
+                scale: 1 }}
+              transition={ { duration: 0.3,
+                delay: 0.5 }}
+              >
+              <ThemeToggle />
+            </motion.div>
+          </nav>*/}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navItems.map((item, i) => {
+              const isActive = activeSection === item.href.substring(1);
+              return (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  initial={ { opacity: 0, y: -20 }}
+                  animate={ { opacity: 1, y: 0 }}
+                  transition={ { duration: 0.3, delay: i * 0.1 }}
+                  className={cn(
+                    "text-sm font-medium relative group",
+                    isActive ? "text-primary": ""
+                  )}
+                  >
+                  {item.name}
+                  <span
+                    className={cn(
+                      "absolute inset-x-0 bottom-0 h-0.5 bg-primary origin-left transform transition-transform duration-300",
+                      isActive ? "scale-x-100": "scale-x-0 group-hover:scale-x-100"
+                    )}
+                    ></span>
+                </motion.a>
+              );
+            })}
             <motion.div
               initial={ { opacity: 0,
                 scale: 0.8 }}

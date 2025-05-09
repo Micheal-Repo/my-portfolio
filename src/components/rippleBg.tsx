@@ -2,7 +2,7 @@ import {
   Ripple
 } from "@/components/ui/ripple";
 
-export default function Ripple() {
+export default function RippleComp() {
   return (
     <div className="absolute inset-0">
       <Ripple

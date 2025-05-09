@@ -2,11 +2,10 @@ import {
   motion
 } from "framer-motion";
 import AnimatedBlob from "./AnimatedBlob";
-import AnimatedSphere from "./AnimatedSphere";
 import {
   ArrowDown
 } from "lucide-react";
-import GridBg from "@/components/gridBg"
+//import GridBg from "@/components/gridBg"
 import RippleBg from "@/components/rippleBg"
 import Button from "@/components/Button"
 import {
@@ -101,9 +100,6 @@ export default function Hero() {
               size="lg"
               />
 
-            <div className="absolute -right-10 -top-10 w-40 h-40 opacity-70 pointer-events-none">
-              <AnimatedSphere />
-            </div>
           </motion.div>
         </div>
       </div>

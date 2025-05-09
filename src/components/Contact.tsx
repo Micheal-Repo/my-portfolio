@@ -1,70 +1,19 @@
 import {
-  useState
-} from "react";
-import {
   motion
 } from "framer-motion";
 import {
   Mail,
   MessageSquare,
-  Phone,
-  Send
+  Phone
 } from "lucide-react";
-import Button from "@/components/Button"
+import ContactForm from "./contactForm";
 
 export default function Contact() {
-  const [formStatus,
-    setFormStatus] = useState < {
-    message: string;
-    type: "success" | "error" | null;
-  } > ({
-      message: "",
-      type: null,
-    });
-
-  const [formData,
-    setFormData] = useState( {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-
-  const handleChange = (
-    e: React.ChangeEvent < HTMLInputElement | HTMLTextAreaElement >
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent < HTMLFormElement >) => {
-    e.preventDefault();
-    // For demo purposes, let's just simulate a submission
-    console.log("Form data:", formData);
-
-    setTimeout(() => {
-      setFormStatus({
-        message: "Message sent successfully!",
-        type: "success",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
-    }, 1000);
-  };
-
-  const inputClasses = "w-full px-4 py-3 bg-accent border border-border focus:border-primary rounded-lg focus:outline-none transition-colors";
-
   const contactInfo = [{
     icon: <Mail className="h-5 w-5" />,
     title: "Email",
-    value: "contact@yourdomain.com",
-    link: "mailto:contact@yourdomain.com",
+    value: "chinemeremaloysius@gmail.com",
+    link: "mailto:chinemeremaloysius@gmail.com",
   },
     {
       icon: <Phone className="h-5 w-5" />,
@@ -81,7 +30,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-accent/30 relative overflow-hidden w-full">
+    <section id="contact" className="py-20 bg-accent/30 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
 
@@ -109,102 +58,7 @@ export default function Contact() {
             viewport={ { once: true }}
             >
             <h3 className="text-2xl font-medium mb-6">Send a Message</h3>
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block mb-2 text-sm font-medium">
-                    Your Name
-                  </label>
-                  <motion.input
-                    whileFocus={ { scale: 1.01 }}
-                    transition={ { type: "spring", stiffness: 400, damping: 10 }}
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="John Doe"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className={inputClasses}
-                    />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block mb-2 text-sm font-medium">
-                    Email Address
-                  </label>
-                  <motion.input
-                    whileFocus={ { scale: 1.01 }}
-                    transition={ { type: "spring", stiffness: 400, damping: 10 }}
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="john@example.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className={inputClasses}
-                    />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block mb-2 text-sm font-medium">
-                  Subject
-                </label>
-                <motion.input
-                  whileFocus={ { scale: 1.01 }}
-                  transition={ { type: "spring", stiffness: 400, damping: 10 }}
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  placeholder="Project Inquiry"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className={inputClasses}
-                  />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block mb-2 text-sm font-medium">
-                  Message
-                </label>
-                <motion.textarea
-                  whileFocus={ { scale: 1.01 }}
-                  transition={ { type: "spring", stiffness: 400, damping: 10 }}
-                  id="message"
-                  name="message"
-                  rows={5}
-                  placeholder="Tell me about your project or inquiry..."
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className={inputClasses}
-                  />
-              </div>
-
-              <Button
-                type="submit"
-                Icon={send}
-                className="w-full"
-                >
-                Send Message
-              </Button>
-
-              {formStatus.message && (
-                <motion.div
-                  initial={ { opacity: 0, y: 10 }}
-                  animate={ { opacity: 1, y: 0 }}
-                  className={`mt-4 p-3 rounded-lg ${
-                  formStatus.type === "success"
-                  ? "bg-green-500/10 text-green-500": "bg-red-500/10 text-red-500"
-                  }`}
-                  >
-                  {formStatus.message}
-                </motion.div>
-              )}
-            </form>
+            <ContactForm />
           </motion.div>
 
           <motion.div

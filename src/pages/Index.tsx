@@ -15,24 +15,44 @@ import {
 
 const Index = () => {
   useEffect(() => {
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
+    const anchors = Array.from(document.querySelectorAll('a[href^="#"]')) as HTMLAnchorElement[];
 
-        const targetId = this.getAttribute('href');
-        if (!targetId) return;
+    const handleClick = (e: Event, anchor: HTMLAnchorElement) => {
+      e.preventDefault();
 
-        const targetElement = document.querySelector(targetId);
-        if (!targetElement) return;
+      const targetId = anchor.getAttribute("href");
+      if (!targetId) return;
 
-        window.scrollTo({
-          top: targetElement.offsetTop - 80, // Offset for the fixed header
-          behavior: 'smooth'
-        });
+      const targetElement = document.querySelector(targetId);
+      if (!targetElement || !(targetElement instanceof HTMLElement)) return;
+
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: "smooth",
+      });
+    };
+
+    const listeners: {
+      anchor: HTMLAnchorElement; handler: (e: Event) => void
+    }[] = [];
+
+    anchors.forEach((anchor) => {
+      const handler = (e: Event) => handleClick(e, anchor);
+      anchor.addEventListener("click", handler);
+      listeners.push({
+        anchor, handler
       });
     });
-  }, []);
+
+    return () => {
+      listeners.forEach(({
+        anchor, handler
+      }) => {
+        anchor.removeEventListener("click", handler);
+      });
+    };
+  },
+    []);
 
   return (
     <ThemeProvider defaultTheme="light">

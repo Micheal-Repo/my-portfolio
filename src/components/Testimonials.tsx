@@ -2,22 +2,13 @@ import {
   motion
 } from "framer-motion";
 import {
-  Star
-} from "lucide-react";
-import {
   AnimatedSection
 } from "./AnimatedSection";
 import Marquee from "@/components/ui/marque";
 import {
   cn
 } from "@/lib/utils";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+
 
 interface Testimonial {
   id: number;

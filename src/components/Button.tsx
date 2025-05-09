@@ -26,7 +26,7 @@ export default function Button({
   onClick?: () => void;
   outline?:boolean,
   href?:string,
-  type?:string
+  type?:"button" | "submit" | "reset" | undefined
 }) {
   return href ?
   (<motion.a
@@ -46,6 +46,7 @@ export default function Button({
     {children}
   </motion.a>):
   (<motion.button
+    onClick={onClick}
     whileHover={ { scale: 1.05 }}
     whileTap={ { scale: 0.95 }}
     type={type}
@@ -58,7 +59,7 @@ export default function Button({
     <BorderBeam duration={8} size={80} />
     <BorderBeam delay={20} duration={8} size={80} />
 
-    {icon && <Icon />}
+    {Icon && <Icon />}
     <p>
       {children}
     </p>
