@@ -51,10 +51,10 @@ const SkillsSection = () => {
         name: "TypeScript", level: 60
       },
       {
-        name: "React", level: 70
+        name: "React", level: 75
       },
       {
-        name: "Next.js", level: 80
+        name: "Nextjs", level: 70
       },
       {
         name: "Framer Motion", level: 60
@@ -67,10 +67,10 @@ const SkillsSection = () => {
       },
     ],
     backend: [{
-      name: "Node.js", level: 70
+      name: "Nodejs", level: 70
     },
       {
-        name: "Express", level: 80
+        name: "Expressjs", level: 80
       },
       {
         name: "MongoDB", level: 70
