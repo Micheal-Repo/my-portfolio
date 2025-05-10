@@ -73,54 +73,52 @@ export default function About() {
           >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-          <p className="max-w-2xl mx-auto text-muted-foreground text-justify ">
-            I'm a passionate full-stack developer with a knack for turning ideas into functional, elegant, and scalable web applications. With expertise across both frontend and backend technologies, I bridge the gap between user-centric design and robust system architecture.
-            <br />
-          What drives me? Solving complex problems with clean code and crafting seamless interactions that users love. Whether it’s a pixel-perfect UI or optimizing server performance, I thrive on challenges that push me to grow.
-        </p>
-      </motion.div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <motion.div
-          className="flex justify-center"
-          initial={ { opacity: 0, scale: 0.8 }}
-          whileInView={ { opacity: 1, scale: 1 }}
-          transition={ { duration: 0.8 }}
-          viewport={ { once: true }}
-          >
-          <div className="relative">
-            <AnimatedBlob
-              imageUrl="/aloy.jpg"
-              size="md"
-              className="lg:scale-x-[-1]"
-              />
-            <div className="absolute -bottom-4 -right-4 glass rounded-lg p-3 shadow-lg">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-sm font-medium">Available for work</span>
-              </div>
-            </div>
-          </div>
+          <p className="max-w-2xl mx-auto text-muted-foreground text-center ">
+            I'm a passionate full-stack developer with a knack for turning ideas into functional, elegant, and scalable web applications. With expertise across both frontend and backend technologies, I bridge the gap between user-centric design and robust system architecture. What drives me? Solving complex problems with clean code and crafting seamless interactions that users love. Whether it’s a pixel-perfect UI or optimizing server performance, I thrive on challenges that push me to grow.
+          </p>
         </motion.div>
 
-        <div className="space-y-8">
-
-          <Skills />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {skills.map((skill, index) => (
-              <SkillItem
-                key={skill.title}
-                icon={skill.icon}
-                title={skill.title}
-                description={skill.description}
-                delay={index * 0.1}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            className="flex justify-center"
+            initial={ { opacity: 0, scale: 0.8 }}
+            whileInView={ { opacity: 1, scale: 1 }}
+            transition={ { duration: 0.8 }}
+            viewport={ { once: true }}
+            >
+            <div className="relative">
+              <AnimatedBlob
+                imageUrl="/aloy.jpg"
+                size="md"
+                className="lg:scale-x-[-1]"
                 />
-            ))}
+              <div className="absolute -bottom-4 -right-4 glass rounded-lg p-3 shadow-lg">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                  <span className="text-sm font-medium">Available for work</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="space-y-8">
+
+            <Skills />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {skills.map((skill, index) => (
+                <SkillItem
+                  key={skill.title}
+                  icon={skill.icon}
+                  title={skill.title}
+                  description={skill.description}
+                  delay={index * 0.1}
+                  />
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 }

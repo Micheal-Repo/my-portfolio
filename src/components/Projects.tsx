@@ -138,7 +138,8 @@ export default function Projects() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
           <p className="max-w-2xl mx-auto text-muted-foreground">
-            I design, build, and optimize end-to-end web solutions—blending intuitive front-end experiences with high-performance back-end architecture. Each project reflects my ability to solve complex challenges through clean code, scalable systems, and innovative problem-solving.
+            Explore my recent work across frontend and backend development.
+            Each project reflects my ability to solve complex challenges through clean code, scalable systems, and innovative problem-solving.
           </p>
         </motion.div>
 

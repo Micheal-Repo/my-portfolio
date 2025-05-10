@@ -175,7 +175,7 @@ const SkillsSection = () => {
           <h2 className="text-2xl font-semibold text-foreground text-center">
             My Technical Skills
           </h2>
-          <p className="mt-4 text-justify mx-auto max-w-2xl  text-muted-foreground">
+          <p className="mt-4 text-center mx-auto max-w-2xl  text-muted-foreground">
             I've honed a diverse set of skills across the full stack development
             spectrum. From crafting pixel-perfect UIs to building robust backend
             systems, I combine technical expertise with creative problem-solving

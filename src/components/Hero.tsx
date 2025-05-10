@@ -57,7 +57,7 @@ export default function Hero() {
             animate={ { opacity: 1, y: 0 }}
             transition={ { delay: 0.6, duration: 0.8 }}
             >
-            I architect and build scalable, high-performance web applications that empower businesses through intuitive UX and cutting-edge technology. Leveraging modern frameworks and cloud infrastructure, I deliver seamless digital experiences that drive growth and user retention.
+            I build exceptional digital experiences that combine stunning design with cutting-edge technology.
           </motion.p>
 
           <motion.div

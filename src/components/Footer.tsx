@@ -53,6 +53,10 @@ export default function Footer() {
       href: "#projects"
     },
     {
+      name: "Testimonials",
+      href: "#testimonials"
+    },
+    {
       name: "Contact",
       href: "#contact"
     },
@@ -120,7 +124,7 @@ export default function Footer() {
 
         <div className="mt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} John Doe. All rights reserved.
+            © {currentYear} Aloysius. All rights reserved.
           </p>
         </div>
       </div>
