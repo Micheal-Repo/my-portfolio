@@ -138,8 +138,7 @@ export default function Projects() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
           <p className="max-w-2xl mx-auto text-muted-foreground">
-            Explore my recent work across frontend and backend development.
-            Each project represents unique challenges and innovative solutions.
+            I design, build, and optimize end-to-end web solutions—blending intuitive front-end experiences with high-performance back-end architecture. Each project reflects my ability to solve complex challenges through clean code, scalable systems, and innovative problem-solving.
           </p>
         </motion.div>
 
@@ -238,7 +237,7 @@ export default function Projects() {
                 {/* Project tags */}
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map(tag => (
-                    <Badge key={tag} className="bg-primary text-white">{tag}</Badge>
+                    <Badge key={tag} className="bg-accent text-foreground border border-border">{tag}</Badge>
                   ))}
                 </div>
               </div>

@@ -7,7 +7,6 @@ import {
   Code,
   FileCode,
   Server,
-  User
 } from "lucide-react";
 
 interface SkillItemProps {
@@ -74,7 +73,7 @@ export default function About() {
           >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6" />
-          <p className="max-w-2xl mx-auto text-muted-foreground">
+          <p className="max-w-2xl mx-auto text-muted-foreground text-justify ">
             I'm a passionate full-stack developer with a knack for turning ideas into functional, elegant, and scalable web applications. With expertise across both frontend and backend technologies, I bridge the gap between user-centric design and robust system architecture.
             <br />
           What drives me? Solving complex problems with clean code and crafting seamless interactions that users love. Whether it’s a pixel-perfect UI or optimizing server performance, I thrive on challenges that push me to grow.

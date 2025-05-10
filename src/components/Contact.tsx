@@ -3,7 +3,6 @@ import {
 } from "framer-motion";
 import {
   Mail,
-  MessageSquare,
   Phone
 } from "lucide-react";
 import ContactForm from "./contactForm";

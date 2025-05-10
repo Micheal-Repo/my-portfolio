@@ -39,19 +39,19 @@ const SkillsSection = () => {
 
   const skills = {
     frontend: [{
-      name: "HTML5", level: 95
+      name: "HTML5", level: 80
     },
       {
-        name: "CSS3/Tailwind", level: 90
+        name: "CSS3/Tailwind", level: 70
       },
       {
-        name: "JavaScript", level: 80
+        name: "JavaScript", level: 70
       },
       {
         name: "TypeScript", level: 60
       },
       {
-        name: "React", level: 90
+        name: "React", level: 70
       },
       {
         name: "Next.js", level: 80
@@ -67,16 +67,16 @@ const SkillsSection = () => {
       },
     ],
     backend: [{
-      name: "Node.js", level: 88
+      name: "Node.js", level: 70
     },
       {
-        name: "Express", level: 85
+        name: "Express", level: 80
       },
       {
-        name: "MongoDB", level: 90
+        name: "MongoDB", level: 70
       },
       {
-        name: "REST APIs", level: 90
+        name: "REST APIs", level: 80
       },
       {
         name: "Postresql", level: 60
@@ -98,58 +98,61 @@ const SkillsSection = () => {
     const circumference = 2 * Math.PI * radius;
 
     return (
-      <div className="relative w-28 h-28 flex items-center justify-center">
-        <svg className="w-full h-full" viewBox="0 0 100 100">
-          <circle
-            className="text-gray-200"
-            strokeWidth="8"
-            stroke="currentColor"
-            fill="transparent"
-            r={radius}
-            cx="50"
-            cy="50"
-            />
-          <motion.circle
-            style={ { color: "hsl(194.1,100%,40%)" }}
-            className="text-indigo-600"
-            strokeWidth="8"
-            strokeLinecap="round"
-            stroke="currentColor"
-            fill="transparent"
-            r={radius}
-            cx="50"
-            cy="50"
+      <div className="flex flex-col gap-2 justify-center items-center">
+        <div className="relative w-28 h-28 flex items-center justify-center">
+          <svg className="w-full h-full" viewBox="0 0 100 100">
+            <circle
+              className="text-gray-200"
+              strokeWidth="8"
+              stroke="currentColor"
+              fill="transparent"
+              r={radius}
+              cx="50"
+              cy="50"
+              />
+            <motion.circle
+              style={ { color: "hsl(194.1,100%,40%)" }}
+              className="text-indigo-600"
+              strokeWidth="8"
+              strokeLinecap="round"
+              stroke="currentColor"
+              fill="transparent"
+              r={radius}
+              cx="50"
+              cy="50"
+              variants={ {
+                hidden: { strokeDashoffset: circumference },
+                visible: {
+                  strokeDashoffset: circumference - (percentage / 100) * circumference,
+                }
+              }}
+              initial="hidden"
+              animate={controls}
+              transition={ { duration: 1.5,
+                ease: "easeInOut" }}
+              strokeDasharray={circumference}
+              />
+          </svg>
+          <motion.div
+            className="absolute flex flex-col items-center justify-center"
             variants={ {
-              hidden: { strokeDashoffset: circumference },
-              visible: {
-                strokeDashoffset: circumference - (percentage / 100) * circumference,
-              }
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 }
             }}
             initial="hidden"
             animate={controls}
-            transition={ { duration: 1.5,
-              ease: "easeInOut" }}
-            strokeDasharray={circumference}
-            />
-        </svg>
-        <motion.div
-          className="absolute flex flex-col items-center justify-center"
-          variants={ {
-            hidden: { opacity: 0 },
-            visible: { opacity: 1 }
-          }}
-          initial="hidden"
-          animate={controls}
-          transition={ { duration: 0.5,
-            delay: 1 }}
-          >
-          <span className="text-xl font-bold text-foreground">
-            {percentage}%
-          </span>
-          <span className="text-xs text-muted-foreground flex-wrap text-center mt-1">
-            {skill}
-          </span>
-        </motion.div>
+            transition={ { duration: 0.5,
+              delay: 1 }}
+            >
+            <span className="text-2xl font-bold text-foreground">
+              {percentage}%
+            </span>
+          </motion.div>
+        </div>
+
+        <span className="text-sm text-muted-foreground flex-wrap text-center">
+          {skill}
+        </span>
       </div>
     );
   };
@@ -172,7 +175,7 @@ const SkillsSection = () => {
           <h2 className="text-2xl font-semibold text-foreground text-center">
             My Technical Skills
           </h2>
-          <p className="mt-4 text-center mx-auto max-w-2xl  text-muted-foreground">
+          <p className="mt-4 text-justify mx-auto max-w-2xl  text-muted-foreground">
             I've honed a diverse set of skills across the full stack development
             spectrum. From crafting pixel-perfect UIs to building robust backend
             systems, I combine technical expertise with creative problem-solving
