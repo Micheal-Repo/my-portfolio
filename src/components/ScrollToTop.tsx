@@ -44,7 +44,7 @@ export default function ScrollToTop() {
           exit={ { opacity: 0, scale: 0.5 }}
           transition={ { duration: 0.3 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 bg-primary text-primary-foreground rounded-full shadow-lg z-50 hover:shadow-xl hover:shadow-primary/20 max-md:hidden"
+          className="fixed bottom-8 right-8 p-3 bg-primary text-white rounded-full shadow-lg z-50 hover:shadow-xl hover:shadow-primary/20 max-md:hidden"
           aria-label="Scroll to top"
           whileHover={ { scale: 1.1 }}
           whileTap={ { scale: 0.9 }}

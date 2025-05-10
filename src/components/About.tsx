@@ -80,7 +80,7 @@ export default function About() {
       </p>
     </motion.div>
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div className="grid grid-cols-1 gap-16">
       <motion.div
         className="flex justify-center"
         initial={ { opacity: 0, scale: 0.8 }}
@@ -92,7 +92,7 @@ export default function About() {
           <AnimatedBlob
             imageUrl="/aloy.jpg"
             size="md"
-            className="lg:scale-x-[-1]"
+            className=""
             />
           <div className="absolute -bottom-4 -right-4 glass rounded-lg p-3 shadow-lg">
             <div className="flex items-center gap-2">
